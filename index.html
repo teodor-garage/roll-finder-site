@@ -1,0 +1,194 @@
+<title>Politique de confidentialité — Roll Finder</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #63625d;
+    --accent: #0a58ca;
+    --border: #e4e3de;
+    --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #19191b;
+      --surface: #222225;
+      --text: #f2f2f0;
+      --text-muted: #a3a2a0;
+      --accent: #6fa3ea;
+      --border: #333336;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #19191b;
+    --surface: #222225;
+    --text: #f2f2f0;
+    --text-muted: #a3a2a0;
+    --accent: #6fa3ea;
+    --border: #333336;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    margin: 0;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .updated {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 3rem;
+  }
+
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    margin: 0 0 0.9rem;
+  }
+
+  p {
+    margin: 0 0 0.9rem;
+    max-width: 62ch;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    margin: 0 0 0.9rem;
+    padding-left: 1.2rem;
+  }
+
+  ul:last-child { margin-bottom: 0; }
+
+  li { margin-bottom: 0.4rem; }
+  li:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    text-align: center;
+  }
+
+  .contact-box a {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+</style>
+
+<main>
+  <p class="eyebrow">Roll Finder</p>
+  <h1>Politique de confidentialité</h1>
+  <p class="updated">Dernière mise à jour : 11 août 2026</p>
+
+  <section>
+    <h2>Ce que fait Roll Finder</h2>
+    <p>
+      Roll Finder est un annuaire de clubs de jiu-jitsu brésilien en France et un calendrier
+      d'open mats, pensé pour trouver un endroit où rouler quand on est en déplacement. Cette
+      page explique quelles données l'application collecte, pourquoi, et comment les demander
+      ou les faire supprimer.
+    </p>
+  </section>
+
+  <section>
+    <h2>Données collectées</h2>
+    <ul>
+      <li><strong>Position géographique</strong> — uniquement si tu l'autorises, pour trier les clubs par distance. Jamais enregistrée, utilisée en direct sur ton appareil.</li>
+      <li><strong>Adresse email</strong> — si tu crées un compte (connexion email ou Sign in with Apple), pour la connexion et la réinitialisation de mot de passe.</li>
+      <li><strong>Contenu que tu soumets</strong> — si tu proposes un club, une correction ou un open mat, les informations du formulaire (et ton email si tu le renseignes, pour qu'on puisse te recontacter en cas de question).</li>
+    </ul>
+    <p>Aucun compte n'est nécessaire pour consulter l'annuaire ou envoyer une proposition.</p>
+  </section>
+
+  <section>
+    <h2>Utilisation des données</h2>
+    <ul>
+      <li>Afficher les clubs et open mats les plus proches de toi.</li>
+      <li>Gérer la connexion à ton compte, si tu en crées un.</li>
+      <li>Vérifier les propositions de clubs et d'open mats avant publication.</li>
+    </ul>
+    <p>Les données ne sont jamais utilisées à des fins publicitaires ni revendues à des tiers.</p>
+  </section>
+
+  <section>
+    <h2>Hébergement et sécurité</h2>
+    <p>
+      Les données sont hébergées chez <strong>Supabase</strong>, qui agit comme sous-traitant
+      technique. L'accès aux données est protégé par des règles de sécurité au niveau de la
+      base de données : personne ne peut publier une fiche club ou un open mat sans validation,
+      et les mots de passe ne sont jamais stockés en clair.
+    </p>
+  </section>
+
+  <section>
+    <h2>Conservation et suppression</h2>
+    <p>
+      Les données de compte sont conservées tant que le compte existe. Tu peux demander la
+      suppression de ton compte et des données associées à tout moment en écrivant à l'adresse
+      ci-dessous.
+    </p>
+  </section>
+
+  <div class="contact-box">
+    <p style="margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.85rem;">Une question, une demande de suppression ?</p>
+    <a href="mailto:tomiloteodor2@outlook.fr">tomiloteodor2@outlook.fr</a>
+  </div>
+
+  <footer>Roll Finder</footer>
+</main>
