@@ -89,7 +89,7 @@
   .brand img { width: 32px; height: 32px; border-radius: 9px; }
   .brand:hover { text-decoration: none; }
   nav.links { display: flex; align-items: center; gap: 1.75rem; }
-  nav.links a { color: var(--text-muted); font-weight: 500; font-size: 0.92rem; }
+  nav.links a { color: var(--text-muted); font-weight: 500; font-size: 0.92rem; transition: color 200ms ease; }
   nav.links a:hover { color: var(--accent); text-decoration: none; }
   nav.links a[aria-current="page"] { color: var(--text); }
   .nav-toggle { display: none; }
@@ -108,6 +108,20 @@
   .hero p.lead { font-size: 1.15rem; color: var(--text-muted); max-width: 52ch; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
 
+  .stat-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.9rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem; font-weight: 500; box-shadow: var(--shadow); margin-bottom: 1.25rem; }
+  .stat-pill svg { color: var(--accent); flex-shrink: 0; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner > * { animation: fadeInUp 550ms ease both; }
+    .hero-inner > *:nth-child(1) { animation-delay: 0ms; }
+    .hero-inner > *:nth-child(2) { animation-delay: 70ms; }
+    .hero-inner > *:nth-child(3) { animation-delay: 140ms; }
+    .hero-inner > *:nth-child(4) { animation-delay: 210ms; }
+    .hero-inner > *:nth-child(5) { animation-delay: 280ms; }
+    .hero-inner > *:nth-child(6) { animation-delay: 350ms; }
+  }
+
   .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: 1px solid transparent; transition: transform 150ms ease, background 150ms ease, border-color 150ms ease; }
   .btn:hover { text-decoration: none; }
   .btn:active { transform: scale(0.97); }
@@ -115,6 +129,9 @@
   .btn-primary:hover { background: var(--accent-dark); }
   .btn-outline { background: var(--surface); color: var(--text); border-color: var(--border); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover, .btn-outline:hover { transform: translateY(-2px); }
+  }
   .badge-soon { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 0.85rem; }
 
   /* Belt stripe — signature visuelle reprise de l'app */
@@ -141,12 +158,18 @@
     border-radius: 16px;
     padding: 1.6rem;
     box-shadow: var(--shadow);
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   }
   .card .icon {
     width: 42px; height: 42px; border-radius: 12px;
     background: var(--accent-soft); color: var(--accent);
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 1rem;
+    transition: transform 200ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); box-shadow: 0 4px 8px rgba(20,23,31,0.06), 0 16px 32px rgba(47,111,237,0.12); }
+    .card:hover .icon { transform: scale(1.08); }
   }
   .card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
   .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0; }
@@ -173,6 +196,7 @@
     padding: 2.75rem;
     color: #fff;
     text-align: center;
+    box-shadow: 0 20px 40px rgba(47,111,237,0.18);
   }
   .cta-banner h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
   .cta-banner p { color: rgba(255,255,255,0.85); max-width: 46ch; margin: 0 auto 1.5rem; }
@@ -240,6 +264,7 @@
     <p class="eyebrow">JJB &middot; France</p>
     <h1>Trouve ton prochain club de jiu-jitsu brésilien</h1>
     <p class="lead">Roll Finder est l'annuaire qui aide les pratiquants à trouver un club, un open mat, ou à réserver un cours d'essai — où qu'ils soient. Gratuit, pour les pratiquants comme pour les clubs.</p>
+    <span class="stat-pill"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Plus de 500 clubs de JJB déjà référencés en France</span>
     <div class="hero-ctas">
       <span class="badge-soon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21Z M12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> Bientôt disponible sur iOS</span>
       <a class="btn btn-outline" href="pour-les-clubs.html">Je gère un club</a>
