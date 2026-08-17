@@ -1,0 +1,163 @@
+<title>Support — Roll Finder</title>
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #63625d;
+    --accent: #0a58ca;
+    --border: #e4e3de;
+    --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #19191b;
+      --surface: #222225;
+      --text: #f2f2f0;
+      --text-muted: #a3a2a0;
+      --accent: #6fa3ea;
+      --border: #333336;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #19191b;
+    --surface: #222225;
+    --text: #f2f2f0;
+    --text-muted: #a3a2a0;
+    --accent: #6fa3ea;
+    --border: #333336;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    margin: 0;
+    padding: 4rem 1.5rem 6rem;
+  }
+
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+  }
+
+  .updated {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 3rem;
+  }
+
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    margin: 0 0 0.9rem;
+  }
+
+  p {
+    margin: 0 0 0.9rem;
+    max-width: 62ch;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    margin: 0 0 0.9rem;
+    padding-left: 1.2rem;
+  }
+
+  ul:last-child { margin-bottom: 0; }
+
+  li { margin-bottom: 0.4rem; }
+  li:last-child { margin-bottom: 0; }
+
+  strong { font-weight: 600; }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 2rem;
+    text-align: center;
+  }
+
+  .contact-box a {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 3rem;
+  }
+</style>
+
+<main>
+  <p class="eyebrow">Roll Finder</p>
+  <h1>Support</h1>
+  <p class="updated">Une question, un bug, une suggestion ?</p>
+
+  <section>
+    <h2>Contacter l'équipe</h2>
+    <p>
+      Roll Finder est développé par une seule personne. Pour toute question sur l'application,
+      un bug rencontré, une demande de correction sur la fiche de ton club, ou une suggestion,
+      écris directement à l'adresse ci-dessous — les réponses sont personnelles.
+    </p>
+  </section>
+
+  <section>
+    <h2>Questions fréquentes</h2>
+    <ul>
+      <li><strong>Mon club n'apparaît pas ou les infos sont fausses</strong> — utilise le formulaire "Proposer une correction" dans l'app, ou écris-nous directement.</li>
+      <li><strong>Je suis un club et je veux gérer ma fiche</strong> — utilise "Réclamer ce club" depuis la fiche dans l'app (vérification par email).</li>
+      <li><strong>Je veux supprimer mon compte</strong> — écris-nous, la suppression est traitée manuellement sous quelques jours.</li>
+    </ul>
+  </section>
+
+  <div class="contact-box">
+    <p style="margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.85rem;">Écris-nous</p>
+    <a href="mailto:contact@approllfinder.com">contact@approllfinder.com</a>
+  </div>
+
+  <footer>Roll Finder</footer>
+</main>
