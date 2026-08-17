@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pour les clubs — Roll Finder</title>
+<meta name="description" content="Récupère la fiche de ton club sur Roll Finder gratuitement : visibilité, réservation de cours d'essai, badge vérifié.">
+<link rel="canonical" href="https://approllfinder.com/pour-les-clubs.html">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:title" content="Pour les clubs — Roll Finder">
+<meta property="og:description" content="Récupère la fiche de ton club sur Roll Finder gratuitement : visibilité, réservation de cours d'essai, badge vérifié.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://approllfinder.com/assets/apple-touch-icon.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+  :root {
+    --accent: #2f6fed;
+    --accent-dark: #1e4fc4;
+    --accent-soft: #eaf1fe;
+    --on-accent: #ffffff;
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --text: #14171f;
+    --text-muted: #5b6270;
+    --text-subtle: #8b91a0;
+    --border: #e6e8ee;
+    --success: #1f9d55;
+    --heading: 'Sora', -apple-system, sans-serif;
+    --body: 'Inter', -apple-system, sans-serif;
+    --shadow: 0 1px 2px rgba(20,23,31,0.04), 0 8px 24px rgba(47,111,237,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --accent: #6fa3ea;
+      --accent-dark: #8fb8ef;
+      --accent-soft: rgba(111,163,234,0.12);
+      --on-accent: #0d1420;
+      --bg: #131417;
+      --surface: #1b1c20;
+      --text: #f2f3f5;
+      --text-muted: #a3a7b0;
+      --text-subtle: #75798a;
+      --border: #2b2d33;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --accent: #6fa3ea;
+    --accent-dark: #8fb8ef;
+    --accent-soft: rgba(111,163,234,0.12);
+    --on-accent: #0d1420;
+    --bg: #131417;
+    --surface: #1b1c20;
+    --text: #f2f3f5;
+    --text-muted: #a3a7b0;
+    --text-subtle: #75798a;
+    --border: #2b2d33;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  img { max-width: 100%; display: block; }
+  h1, h2, h3 { font-family: var(--heading); font-weight: 700; line-height: 1.15; margin: 0; text-wrap: balance; }
+  p { margin: 0 0 1rem; max-width: 62ch; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow {
+    font-family: var(--body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.75rem;
+  }
+
+  /* Nav */
+  header.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.5rem;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--heading); font-weight: 700; font-size: 1.05rem; color: var(--text); }
+  .brand img { width: 32px; height: 32px; border-radius: 9px; }
+  .brand:hover { text-decoration: none; }
+  nav.links { display: flex; align-items: center; gap: 1.75rem; }
+  nav.links a { color: var(--text-muted); font-weight: 500; font-size: 0.92rem; }
+  nav.links a:hover { color: var(--accent); text-decoration: none; }
+  nav.links a[aria-current="page"] { color: var(--text); }
+  .nav-toggle { display: none; }
+
+  @media (max-width: 720px) {
+    nav.links { position: fixed; inset: 0; top: 62px; background: var(--bg); flex-direction: column; align-items: flex-start; padding: 1.5rem; gap: 1.25rem; transform: translateX(100%); transition: transform 220ms ease; }
+    nav.links.open { transform: translateX(0); }
+    nav.links a { font-size: 1.1rem; }
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+  }
+
+  /* Hero */
+  .hero { padding: 4.5rem 0 3.5rem; }
+  .hero-inner { max-width: 720px; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin-bottom: 1.1rem; }
+  .hero p.lead { font-size: 1.15rem; color: var(--text-muted); max-width: 52ch; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 1.75rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem; border-radius: 12px; font-weight: 600; font-size: 0.95rem; cursor: pointer; border: 1px solid transparent; transition: transform 150ms ease, background 150ms ease, border-color 150ms ease; }
+  .btn:hover { text-decoration: none; }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-primary:hover { background: var(--accent-dark); }
+  .btn-outline { background: var(--surface); color: var(--text); border-color: var(--border); }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .badge-soon { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 0.85rem; }
+
+  /* Belt stripe — signature visuelle reprise de l'app */
+  .belt-stripe { display: flex; gap: 5px; height: 14px; border-radius: 999px; overflow: hidden; margin: 2.5rem 0 0; max-width: 320px; }
+  .belt-stripe span { flex: 1; border-radius: 999px; }
+  .belt-white { background: #f4f4f2; border: 1px solid #d8d8d4; }
+  .belt-blue { background: #2f6fed; }
+  .belt-purple { background: #7c4fd8; }
+  .belt-brown { background: #8a5a34; }
+  .belt-black { background: #17181c; border: 1px solid #46484f; }
+
+  /* Sections */
+  section { padding: 3.5rem 0; }
+  section.alt { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section-head { max-width: 620px; margin-bottom: 2.25rem; }
+  .section-head h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); margin-bottom: 0.6rem; }
+  .section-head p { color: var(--text-muted); }
+
+  /* Feature grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.1rem; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+  }
+  .card .icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    background: var(--accent-soft); color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0; }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; counter-reset: step; }
+  .step { position: relative; padding-left: 2.75rem; }
+  .step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 34px; height: 34px; border-radius: 10px;
+    background: var(--accent); color: var(--on-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--heading); font-weight: 700; font-size: 0.95rem;
+  }
+  .step h3 { font-size: 1rem; margin-bottom: 0.35rem; }
+  .step p { color: var(--text-muted); font-size: 0.92rem; }
+
+  /* CTA banner */
+  .cta-banner {
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    border-radius: 20px;
+    padding: 2.75rem;
+    color: #fff;
+    text-align: center;
+  }
+  .cta-banner h2 { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.75rem; }
+  .cta-banner p { color: rgba(255,255,255,0.85); max-width: 46ch; margin: 0 auto 1.5rem; }
+  .cta-banner .btn-outline { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.35); }
+  .cta-banner .btn-outline:hover { border-color: #fff; color: #fff; }
+  .cta-banner .btn-primary { background: #fff; color: var(--accent-dark); }
+  .cta-banner .btn-primary:hover { background: #fff; opacity: 0.92; }
+
+  /* Legal content */
+  .prose { max-width: 720px; }
+  .prose h2 { font-size: 1.3rem; margin: 2.25rem 0 0.85rem; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose ul { padding-left: 1.2rem; color: var(--text-muted); }
+  .prose li { margin-bottom: 0.5rem; }
+  .prose p { color: var(--text-muted); }
+  .prose strong { color: var(--text); font-weight: 600; }
+  .updated { color: var(--text-subtle); font-size: 0.9rem; margin: -0.5rem 0 2rem; }
+
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    text-align: center;
+    max-width: 420px;
+  }
+  .contact-box a { font-family: var(--heading); font-size: 1.05rem; font-weight: 700; }
+  .contact-box p { color: var(--text-subtle); font-size: 0.85rem; margin-bottom: 0.5rem; }
+
+  /* Footer */
+  footer.site-footer { border-top: 1px solid var(--border); padding: 2.75rem 0 3.25rem; margin-top: 2rem; }
+  .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+  .footer-brand { display: flex; align-items: center; gap: 0.6rem; font-family: var(--heading); font-weight: 700; color: var(--text); margin-bottom: 0.6rem; }
+  .footer-brand img { width: 26px; height: 26px; border-radius: 7px; }
+  .footer-tag { color: var(--text-subtle); font-size: 0.85rem; max-width: 32ch; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.55rem; }
+  .footer-links a { color: var(--text-muted); font-size: 0.9rem; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-col-title { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 0.9rem; }
+  .footer-bottom { border-top: 1px solid var(--border); margin-top: 2.25rem; padding-top: 1.5rem; color: var(--text-subtle); font-size: 0.82rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+</style>
+</head>
+<body>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="/assets/logo-64.png" alt="Roll Finder">
+      Roll Finder
+    </a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="links">
+      <a href="index.html">Accueil</a>
+<a href="fonctionnalites.html">Fonctionnalités</a>
+<a href="pour-les-clubs.html" aria-current="page">Pour les clubs</a>
+<a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container hero-inner">
+    <p class="eyebrow">Pour les clubs</p>
+    <h1>Un canal d'inscriptions gratuit, sans commission</h1>
+    <p class="lead">Roll Finder connecte ton club à des pratiquants qui cherchent activement où s'entraîner — près de chez eux ou en déplacement. Aucun abonnement, aucune commission, aucun frais caché.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="mailto:contact@approllfinder.com">Réclamer mon club</a>
+      <a class="btn btn-outline" href="support.html">Une question ?</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Ce que tu gagnes</p>
+      <h2>Le contrôle total sur ta fiche</h2>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12.5l5 5L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Fiche modifiable par toi seul</h3><p>Horaires, tarifs, politique visiteurs, photos — mis à jour par toi, jamais par un tiers.</p></div>
+      <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9h16 M6 4v3 M18 4v3 M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Réservation de cours d'essai</h3><p>Reçois les demandes directement dans l'app, avec le profil du pratiquant (âge, niveau).</p></div>
+      <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15.5 7 18l1-5.5L4 8.5l5.5-.7L12 3l2.5 4.8 5.5.7-4 4 1 5.5Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Badge "vérifié"</h3><p>Rassure les nouveaux pratiquants qui découvrent ton club.</p></div>
+      <div class="card"><div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a5 5 0 0 0-5 5v3.5c0 .8-.3 1.6-.9 2.2L4.5 15.5A1 1 0 0 0 5.2 17h13.6a1 1 0 0 0 .7-1.7l-1.6-1.8a3 3 0 0 1-.9-2.2V8a5 5 0 0 0-5-5Z M9.5 20a2.5 2.5 0 0 0 5 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Diffusion des open mats</h3><p>Publie tes open mats et touche automatiquement les pratiquants qui suivent ton club.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Comment récupérer ta fiche</p>
+      <h2>Trois étapes</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Trouve ta fiche</h3><p>Cherche ton club dans l'annuaire de l'app.</p></div>
+      <div class="step"><h3>Vérifie ton email</h3><p>Un code de confirmation prouve que tu es bien rattaché au club.</p></div>
+      <div class="step"><h3>Gère librement</h3><p>Complète horaires, tarifs, photos, et active la réservation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="cta-banner">
+      <h2>Prêt à récupérer ta fiche ?</h2>
+      <p>Écris-nous, on t'accompagne — ou fais-le directement depuis l'app.</p>
+      <a class="btn btn-primary" href="mailto:contact@approllfinder.com">contact@approllfinder.com</a>
+    </div>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div style="max-width:280px;">
+        <div class="footer-brand"><img src="/assets/logo-64.png" alt="Roll Finder">Roll Finder</div>
+        <p class="footer-tag">L'annuaire des clubs de jiu-jitsu brésilien en France — trouve un club, un open mat, ou réserve un cours d'essai.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Produit</div>
+        <div class="footer-links">
+          <a href="fonctionnalites.html">Fonctionnalités</a>
+          <a href="pour-les-clubs.html">Pour les clubs</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Légal</div>
+        <div class="footer-links">
+          <a href="confidentialite.html">Confidentialité</a>
+          <a href="conditions.html">Conditions d'utilisation</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Aide</div>
+        <div class="footer-links">
+          <a href="support.html">Support</a>
+          <a href="mailto:contact@approllfinder.com">contact@approllfinder.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Roll Finder</span>
+      <span>Fait en France 🇫🇷</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var t = document.querySelector('.nav-toggle');
+  var l = document.querySelector('nav.links');
+  if (t && l) { t.addEventListener('click', function () { l.classList.toggle('open'); }); }
+</script>
+
+</body>
+</html>
