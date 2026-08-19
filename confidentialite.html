@@ -267,7 +267,7 @@
 </section>
 <section style="padding-top:0;">
   <div class="container prose">
-    <p class="updated">Dernière mise à jour : 17 août 2026</p>
+    <p class="updated">Dernière mise à jour : 19 août 2026</p>
 
     <h2>Ce que fait Roll Finder</h2>
     <p>Roll Finder est un annuaire de clubs de jiu-jitsu brésilien en France et un calendrier d'open mats, pensé pour trouver un endroit où rouler quand on est en déplacement. Cette page explique quelles données l'application collecte, pourquoi, et comment les demander ou les faire supprimer.</p>
@@ -280,8 +280,9 @@
       <li><strong>Demandes de cours d'essai</strong> — prénom, âge, ceinture, email de contact, créneau souhaité et message éventuel, transmis au club concerné.</li>
       <li><strong>Identifiant de notification (push token)</strong> — un identifiant technique propre à ton appareil, pour t'envoyer des notifications.</li>
       <li><strong>Contenu que tu soumets</strong> — si tu proposes un club, une correction ou un open mat, les informations du formulaire (et ton email si tu le renseignes).</li>
+      <li><strong>Identifiant publicitaire (IDFA)</strong> — uniquement si tu l'autorises via la fenêtre Apple "App Tracking Transparency" au premier lancement, pour afficher des publicités pertinentes via Google AdMob. Tu peux refuser sans que ça t'empêche d'utiliser l'app.</li>
     </ul>
-    <p>Aucun compte n'est nécessaire pour consulter l'annuaire ou envoyer une proposition. Nous ne collectons ni photo, ni contact de ton téléphone, ni identifiant publicitaire.</p>
+    <p>Aucun compte n'est nécessaire pour consulter l'annuaire ou envoyer une proposition. Nous ne collectons ni photo, ni contact de ton téléphone.</p>
 
     <h2>Utilisation des données</h2>
     <ul>
@@ -290,14 +291,18 @@
       <li>Transmettre tes demandes de cours d'essai au club concerné.</li>
       <li>T'envoyer des notifications que tu as choisi d'activer.</li>
       <li>Vérifier les propositions de clubs et d'open mats avant publication.</li>
+      <li>Afficher des publicités (voir section dédiée ci-dessous) permettant de garder l'app gratuite.</li>
     </ul>
-    <p>Les données ne sont jamais utilisées à des fins publicitaires, ni pour du tracking, ni revendues à des tiers. Roll Finder n'intègre aucun SDK publicitaire ou d'analyse tierce.</p>
+    <p>En dehors de la publicité, les données ne sont jamais utilisées à des fins de tracking ni revendues à des tiers.</p>
+
+    <h2>Publicité</h2>
+    <p>Roll Finder affiche des publicités via <strong>Google AdMob</strong>, ce qui permet de garder l'application gratuite. Au premier lancement, une fenêtre de consentement (conforme RGPD, via le SDK Google User Messaging Platform) te demande ton accord avant tout affichage de publicité personnalisée, suivie sur iOS de la demande d'autorisation Apple "App Tracking Transparency" pour l'identifiant publicitaire (IDFA). Si tu refuses l'un ou l'autre, des publicités génériques (non personnalisées) peuvent toujours s'afficher, mais aucun suivi publicitaire n'est effectué. Google peut traiter certaines données techniques (type d'appareil, identifiant publicitaire si autorisé) selon sa propre politique de confidentialité, disponible sur <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
 
     <h2>Hébergement et sécurité</h2>
     <p>Les données sont hébergées chez <strong>Supabase</strong>, qui agit comme sous-traitant technique. L'accès est protégé par des règles de sécurité au niveau de la base de données : personne ne peut publier une fiche club ou un open mat sans validation, et les mots de passe ne sont jamais stockés en clair.</p>
 
     <h2>Conservation et suppression</h2>
-    <p>Les données de compte sont conservées tant que le compte existe. Tu peux demander la suppression de ton compte et des données associées à tout moment en écrivant à l'adresse ci-dessous.</p>
+    <p>Les données de compte sont conservées tant que le compte existe. Tu peux supprimer ton compte et toutes les données associées directement depuis l'application (onglet Compte &gt; Supprimer mon compte) — la suppression est immédiate et définitive. Tu peux aussi nous écrire à l'adresse ci-dessous pour toute question ou demande.</p>
 
     <div class="contact-box">
       <p>Une question, une demande de suppression ?</p>
