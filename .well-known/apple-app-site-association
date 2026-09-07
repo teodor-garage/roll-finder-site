@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "QGC7BUJ5JG.com.teodortomilo.rollfinder",
+        "paths": ["/club/*", "/open-mat/*"]
+      }
+    ]
+  }
+}
